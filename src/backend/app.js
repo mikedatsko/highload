@@ -13,7 +13,7 @@ if (process.env.PORT.toString() !== '4321') {
 }
 
 app.use(express.static(path.join(__dirname, '../../build')));
-app.use(favicon(path.join(__dirname, '../../build', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, '../../build', 'favicon.png')));
 
 app.use((req, res, next) => {
   // res.setHeader('Access-Control-Allow-Origin', '*');

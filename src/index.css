@@ -16,6 +16,8 @@
 
 html {
   height: 100%;
+  background: dodgerblue;
+  overflow: hidden;
 }
 
 body {
@@ -23,35 +25,18 @@ body {
   padding: 0;
   font-family: 'Quicksand', sans-serif;
   height: 100%;
+  overflow: hidden;
 }
 
 #root {
   height: 100%;
-  background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(255,255,255,0.56) 51%, rgba(0,0,0,0.13) 100%);
-  background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%,rgba(255,255,255,0.56) 51%,rgba(0,0,0,0.13) 100%);
-  background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%,rgba(255,255,255,0.56) 51%,rgba(0,0,0,0.13) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#21000000',GradientType=1 );
-}
-
-button {
-  background: cornflowerblue url(./assets/images/bg-card.svg) repeat 50%;
-  background-size: 9px;
-  border: 0;
-  border-radius: 5px;
-  color: white;
-  padding: 10px 20px;
-  font-size: 26px;
-  font-weight: bold;
-  letter-spacing: 3px;
-  position: relative;
-  top: -3px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.4);
-  transition: linear top 0.2s, linear box-shadow 0.2s;
-  outline: none;
-  z-index: 3;
-}
-
-button:active {
-  top: 0px;
-  box-shadow: 0 0px 0px rgba(0,0,0,0.4);
+  width: 100%;
+  position: fixed;
+  overflow: auto;
+  left: 0;
+  top: 0;
+  /*background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(255,255,255,0.56) 51%, rgba(0,0,0,0.13) 100%);*/
+  /*background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%,rgba(255,255,255,0.56) 51%,rgba(0,0,0,0.13) 100%);*/
+  /*background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%,rgba(255,255,255,0.56) 51%,rgba(0,0,0,0.13) 100%);*/
+  /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#21000000',GradientType=1 );*/
 }
