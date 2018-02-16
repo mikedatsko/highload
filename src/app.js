@@ -35,8 +35,6 @@ function sendMessage(e) {
   // receiver.postMessage('Hello Treehouse!', 'http://localhost:3000');
 }
 
-// window.parent.postMessage('FRAME_LOADED',(new URL(document.location.href)).searchParams.get('host_url') || 'http://jsmeasure.surge.sh');
-
 const timer = {
   start: 0,
   end: 0,
@@ -335,6 +333,16 @@ export default class App extends Component {
               <div className="navbar-end">
                 <div className="add-form">
                   <div className="field  is-grouped">
+                    <p className="control">
+                      <input
+                        className="input"
+                        type="text"
+                        placeholder="Code"
+                        value={'window.parent.postMessage(\'FRAME_LOADED\',(new URL(document.location.href)).searchParams.get(\'host_url\') || \'http://jsmeasure.surge.sh\');'}
+                        onFocus={e => e.target.select()}
+                      />
+                    </p>
+
                     <p className="control">
                       <input
                         className="input"
