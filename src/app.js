@@ -52,39 +52,57 @@ export default class App extends Component {
       participants: [
         {
           title: 'ES5',
-          url: 'http://localhost:8000',
-          // url: 'http://jsmeasure-es5.surge.sh',
+          // url: 'http://localhost:8000',
+          url: 'http://jsmeasure-es5.surge.sh',
           progress: 0,
           time: 0,
           isSelected: false
         },
         {
           title: 'ES6',
-          url: 'http://localhost:8001',
-          // url: 'http://jsmeasure-es6.surge.sh',
+          // url: 'http://localhost:8001',
+          url: 'http://jsmeasure-es6.surge.sh',
           progress: 0,
           time: 0,
           isSelected: false
         },
         {
           title: 'jQuery',
-          url: 'http://localhost:8002',
-          // url: 'http://jsmeasure-jquery.surge.sh',
+          // url: 'http://localhost:8002',
+          url: 'http://jsmeasure-jquery.surge.sh',
           progress: 0,
           time: 0,
           isSelected: false
         },
         {
           title: 'Backbone',
-          url: 'http://localhost:8003',
-          // url: 'http://jsmeasure-backbone.surge.sh',
+          // url: 'http://localhost:8003',
+          url: 'http://jsmeasure-backbone.surge.sh',
           progress: 0,
           time: 0,
           isSelected: false
         },
         {
           title: 'Aurelia',
-          url: 'http://localhost:7000',
+          // url: 'http://localhost:7000',
+          // url: 'http://localhost:9000#10000',
+          url: 'http://jsmeasure-aurelia.surge.sh',
+          progress: 0,
+          time: 0,
+          isSelected: false
+        },
+        {
+          title: 'Angular',
+          url: 'http://jsmeasure-angular.surge.sh',
+          // url: 'http://localhost:9000#10000',
+          // url: 'http://jsmeasure-aurelia.surge.sh',
+          progress: 0,
+          time: 0,
+          isSelected: false
+        },
+        {
+          title: 'Angular 2',
+          url: 'http://jsmeasure-angular2.surge.sh',
           // url: 'http://localhost:9000#10000',
           // url: 'http://jsmeasure-aurelia.surge.sh',
           progress: 0,
@@ -212,12 +230,6 @@ export default class App extends Component {
               </div>
 
               <div className="navbar-end">
-                <NavBarMenuItem className="navbar-item">
-                  Home
-                </NavBarMenuItem>
-                <NavBarMenuItem className="navbar-item">
-                  Home
-                </NavBarMenuItem>
                 <NavBarMenuItem className="navbar-item">
                   Home
                 </NavBarMenuItem>
