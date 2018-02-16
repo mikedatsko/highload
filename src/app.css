@@ -1,0 +1,15 @@
+.add-form {
+  margin: 10px 10px 0 0;
+}
+
+.participant-title {
+  position: relative;
+}
+
+.participant-result {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+}
