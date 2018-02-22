@@ -5,7 +5,7 @@ import './icons.css'
 import './fireworks.css'
 import './index.css'
 import './app.css'
-import logo from './assets/images/logo.svg'
+import logo from './assets/images/logo-full.svg'
 
 import {
   Footer,
@@ -14,11 +14,9 @@ import {
   NavBar,
   NavBarMenu,
   Content,
-  Tools,
-  ToolLogo,
-  ToolLogoImage,
   Url,
-  Logo
+  Logo,
+  AddForm
 } from './app.styles'
 
 const hostUrl = !process.env.NODE_ENV || process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : ''
@@ -152,8 +150,6 @@ export default class App extends Component {
     window.addEventListener('message', event => {
       const message = event.data
 
-      // console.log('message', message)
-
       if (message === 'FRAME_LOADED') {
         const result = new Date().getTime() - timer.start
         const participants = this.state.participants
@@ -199,7 +195,6 @@ export default class App extends Component {
     })
 
     if (isNewStart) {
-      // console.log(this.state.iterations)
       const participants = this.state
         .participants
         .map(participant => {
@@ -221,8 +216,6 @@ export default class App extends Component {
       return
     }
 
-    // console.log('participantSelected', participantSelected)
-
     this.setState({
       isStarted: true,
       previewFrameSrc: participantSelected.url
@@ -232,8 +225,6 @@ export default class App extends Component {
   }
 
   finishTest() {
-    // console.log(this.state.participants)
-
     const participants = this.state
       .participants
       .map(participant => {
@@ -274,36 +265,15 @@ export default class App extends Component {
     })
   }
 
-  renderTools() {
-    const tools = [
-      {
-        name: 'React JS',
-        logo: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K',
-        url: 'https://reactjs.org'
-      },
-      {
-        name: 'Bulma',
-        logo: 'https://bulma.io/images/bulma-logo.png',
-        url: 'https://bulma.io'
-      }
-    ]
-
-    return tools.map((tool, i) => (
-      <ToolLogo key={'tool_' + i} href={tool.url} target={'_blank'} title={tool.name}>
-        <ToolLogoImage src={tool.logo} alt={tool.name}/>
-      </ToolLogo>
-    ))
-  }
-
   renderParticipants() {
     const participants = this.state.participants
     const maxTime = Math.max.apply(Math, participants.map(participant => participant.time))
 
     return participants.map((participant, i) => {
       const width = Math.round(participant.time / maxTime * 100)
-      const time = participant.times.length
-        ? Math.round(participant.times.reduce((a, b) => a + b) / participant.times.length)
-        : participant.time
+      // const time = participant.times.length
+      //   ? Math.round(participant.times.reduce((a, b) => a + b) / participant.times.length)
+      //   : participant.time
 
       return (
         <tr key={'participant_' + i} className={participant.isSelected ? 'is-selected' : ''}>
@@ -331,133 +301,122 @@ export default class App extends Component {
               </div>
 
               <div className="navbar-end">
-                <div className="add-form">
+                <AddForm>
                   <div className="field  is-grouped">
-                    <p className="control">
+                    <div className="control">
                       <input
                         className="input"
                         type="text"
                         placeholder="Code"
-                        value={'window.parent.postMessage(\'FRAME_LOADED\',(new URL(document.location.href)).searchParams.get(\'host_url\') || \'http://jsmeasure.surge.sh\');'}
+                        defaultValue={'window.parent.postMessage(\'FRAME_LOADED\',(new URL(document.location.href)).searchParams.get(\'host_url\') || \'http://jsmeasure.surge.sh\');'}
                         onFocus={e => e.target.select()}
                       />
-                    </p>
+                    </div>
 
-                    <p className="control">
+                    <div className="control">
                       <input
                         className="input"
                         type="text"
                         placeholder="Title"
-                        value={this.state.add_title}
+                        defaultValue={this.state.add_title}
                         onChange={e => this.onChangeInput('add_title', e.target.value)}
                       />
-                    </p>
+                    </div>
 
-                    <p className="control">
+                    <div className="control">
                       <input
                         className="input"
                         type="text"
                         placeholder="Url"
-                        value={this.state.add_url}
+                        defaultValue={this.state.add_url}
                         onChange={e => this.onChangeInput('add_url', e.target.value)}
                       />
-                    </p>
+                    </div>
 
-                    <p className="control">
+                    <div className="control">
                       <a
                         className={'button is-link' + (this.state.isStarted ? ' is-loading' : '')}
                         onClick={() => this.addTest()}
                       >
                         Add
                       </a>
-                    </p>
+                    </div>
                   </div>
-                </div>
+                </AddForm>
               </div>
             </NavBarMenu>
           </NavBar>
 
           <Content className="content">
-            <div className="container">
-              <div className="columns">
-                <div className="column">
-                  <div className="field is-grouped">
-                    <p className="control">
-                      <a className="button is-white">
-                        Number of iterations
-                      </a>
-                    </p>
+            <div className="field is-grouped">
+              <div className="control">
+                <a className="button is-white">
+                  Number of iterations
+                </a>
+              </div>
 
-                    <p className="control">
-                      <div className="select">
-                        <select name="country" onChange={e => this.onChangeInput('iterations', e.target.value)}>
-                          <option value="1">1</option>
-                          <option value="10">10</option>
-                          <option value="100">100</option>
-                          <option value="1000">1000</option>
-                          <option value="10000">10000</option>
-                          <option value="100000">100000</option>
-                        </select>
-                      </div>
-                    </p>
-
-                    <p className="control">
-                      <a
-                        className={'button is-primary' + (this.state.isStarted ? ' is-loading' : '')}
-                        onClick={() => this.startTest(true)}
-                      >
-                        Start
-                      </a>
-                    </p>
-                  </div>
-
-                  <table className="table">
-                    <thead>
-                      <tr>
-                        <th width="50">#</th>
-                        <th>Title</th>
-                        <th width="100">Time, ms</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {this.renderParticipants()}
-                    </tbody>
-                  </table>
-                </div>
-                <div className="column is-one-third">
-                  <PreviewFrame
-                    id="preview_frame"
-                    title="previewFrame"
-                    src={this.state.previewFrameSrc}
-                    frameBorder="0"
-                  >
-                  </PreviewFrame>
+              <div className="control">
+                <div className="select">
+                  <select name="country" onChange={e => this.onChangeInput('iterations', e.target.value)}>
+                    <option value="1">1</option>
+                    <option value="10">10</option>
+                    <option value="100">100</option>
+                    <option value="1000">1000</option>
+                    <option value="10000">10000</option>
+                    <option value="100000">100000</option>
+                  </select>
                 </div>
               </div>
-            </div>
-          </Content>
 
-          <Tools className="container">
-            {this.renderTools()}
-          </Tools>
+              <div className="control">
+                <a
+                  className={'button is-link' + (this.state.isStarted ? ' is-loading' : '')}
+                  onClick={() => this.startTest(true)}
+                >
+                  Start
+                </a>
+              </div>
+            </div>
+
+            {this.state.isStarted
+              ? <PreviewFrame
+                  id="preview_frame"
+                  title="previewFrame"
+                  src={this.state.previewFrameSrc}
+                  frameBorder="0"
+                >
+                </PreviewFrame>
+              : ''
+            }
+
+            <table className="table">
+              <thead>
+                <tr>
+                  <th width="50">#</th>
+                  <th>Title</th>
+                  <th width="100">Time, ms</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.renderParticipants()}
+              </tbody>
+            </table>
+          </Content>
         </div>
 
         <Footer className="footer">
           <FooterContainer className="container">
             <div className="columns">
               <div className="column">
-                First column
+
               </div>
               <div className="column">
-                Second column
+
               </div>
               <div className="column">
-                <h3>Tools & Technologies</h3>
+
               </div>
               <div className="column">
-                <p>
-                  <a href="http://jgthms.com"><strong>JSMeasure</strong></a>
-                </p>
                 <p>
                   The source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
                 </p>

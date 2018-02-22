@@ -1,6 +1,6 @@
 {
-  "name": "jsmeasure",
-  "version": "0.1.0",
+  "name": "highload",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "body-parser": "^1.18.1",
@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "node ./src/backend/bin/www",
-    "start:local": "PORT=4321 node ./src/backend/bin/www",
+    "start:dev": "PORT=4321 node ./src/backend/bin/www",
     "postinstall": "npm run build",
     "watch": "react-scripts start",
     "build": "react-scripts build",

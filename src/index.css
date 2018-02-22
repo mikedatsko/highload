@@ -16,7 +16,7 @@
 
 html {
   height: 100%;
-  background: dodgerblue;
+  background: #f3ed1f;
   overflow: hidden;
 }
 
@@ -39,4 +39,27 @@ body {
   /*background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%,rgba(255,255,255,0.56) 51%,rgba(0,0,0,0.13) 100%);*/
   /*background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%,rgba(255,255,255,0.56) 51%,rgba(0,0,0,0.13) 100%);*/
   /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#21000000',GradientType=1 );*/
+}
+
+.button:not(.is-white) {
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.5);
+}
+
+.button:not(.is-white):hover {
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.button.is-link {
+  background-color: #f3ed1f;
+  border-color: transparent;
+  color: #000;
+}
+
+.button.is-link:hover {
+  background-color: #ccc61c;
+}
+
+.table tr.is-selected {
+  background-color: #f3ed1f;
+  color: #000;
 }
