@@ -9,7 +9,11 @@
     "express-sslify": "^1.2.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.2.0",
     "react-scripts": "1.0.13",
+    "redux": "^3.7.2",
+    "redux-api-middleware": "^2.3.0",
     "serve-favicon": "^2.4.4",
     "styled-components": "^2.4.0"
   },

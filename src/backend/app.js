@@ -8,7 +8,7 @@ const favicon = require('serve-favicon');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-if (process.env.PORT.toString() !== '4321') {
+if (process && process.env && process.env.PORT && process.env.PORT.toString() !== '4321') {
   app.use(enforce.HTTPS({ trustProtoHeader: true }));
 }
 

@@ -1,0 +1,95 @@
+{
+  "participants": [
+    {
+      "title": "ES5",
+      // url: 'http://localhost:8000',
+      "url": "http://jsmeasure-es5.surge.sh",
+      "progress": 0,
+      "time": 0,
+      "times": [],
+      "isSelected": false,
+      "order": 0
+    },
+    {
+      "title": "ES6",
+      // url: 'http://localhost:8001',
+      "url": "http://jsmeasure-es6.surge.sh",
+      "progress": 0,
+      "time": 0,
+      "times": [],
+      "isSelected": false,
+      "order": 1
+    },
+    {
+      "title": "jQuery",
+      // url: 'http://localhost:8002',
+      "url": "http://jsmeasure-jquery.surge.sh",
+      "progress": 0,
+      "time": 0,
+      "times": [],
+      "isSelected": false,
+      "order": 2
+    },
+    {
+      "title": "Backbone",
+      // url: 'http://localhost:8003',
+      "url": "http://jsmeasure-backbone.surge.sh",
+      "progress": 0,
+      "time": 0,
+      "times": [],
+      "isSelected": false,
+      "order": 3
+    },
+    {
+      "title": "Aurelia",
+      // url: 'http://localhost:7000',
+      // url: 'http://localhost:9000#10000',
+      "url": "http://jsmeasure-aurelia.surge.sh",
+      "progress": 0,
+      "time": 0,
+      "times": [],
+      "isSelected": false,
+      "order": 4
+    },
+    {
+      "title": "Angular",
+      "url": "http://jsmeasure-angular.surge.sh",
+      // url: 'http://localhost:9000#10000',
+      "progress": 0,
+      "time": 0,
+      "times": [],
+      "isSelected": false,
+      "order": 5
+    },
+    {
+      "title": "Angular 2",
+      "url": "http://jsmeasure-angular2.surge.sh",
+      // url: 'http://localhost:9000#10000',
+      "progress": 0,
+      "time": 0,
+      "times": [],
+      "isSelected": false,
+      "order": 6
+    },
+    {
+      "title": "React",
+      "url": "http://jsmeasure-react.surge.sh",
+      // url: 'http://localhost:9000#10000',
+      "progress": 0,
+      "time": 0,
+      "times": [],
+      "isSelected": false,
+      "order": 7
+    },
+    {
+      "title": "React (memory game)",
+      "url": "http://jsmeasure-react-memory.surge.sh",
+      // url: 'http://localhost:9000#10000',
+      "progress": 0,
+      "time": 0,
+      "times": [],
+      "isSelected": false,
+      "order": 8
+    }
+  ]
+}
